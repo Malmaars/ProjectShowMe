@@ -19,14 +19,9 @@ public class BoatBalance : MonoBehaviour
         totalWeight = leftWeight + rightWeight;
 
         if(leftWeight > rightWeight)
-        {
             force = leftWeight - rightWeight;
-        }
         else
-        {
             force = rightWeight - leftWeight;
-        }
-            
 
         if (totalWeight < minWeightToMoveBoat)
         {
