@@ -17,12 +17,18 @@ public class BoatWeightCounter : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!playerInCollider.Contains(other)) playerInCollider.Add(other);
+        if (other.CompareTag("Player"))
+        {
+            if (!playerInCollider.Contains(other)) playerInCollider.Add(other);
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        playerInCollider.Remove(other);
+        if (other.CompareTag("Player"))
+        {
+            playerInCollider.Remove(other);
+        }
     }
 
     private void Update()
