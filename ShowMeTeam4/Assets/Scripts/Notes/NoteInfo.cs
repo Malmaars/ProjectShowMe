@@ -5,11 +5,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NoteInfo", menuName = "Scripts/Notes/NotesInfo")]
 public class NoteInfo : ScriptableObject
 {
-    [Header("WaveEffect")]
+    [Header("Wave Effect")]
     public float moveAmount;
     public float moveIntensity;
 
-    [Header("Move up")]
+    [Header("Move Up")]
     public float rangeToMoveUp;
     public float amountToMoveUp;
     public float animationLength;

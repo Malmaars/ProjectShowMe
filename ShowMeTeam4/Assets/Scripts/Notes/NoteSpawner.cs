@@ -8,7 +8,7 @@ public class NoteSpawner : MonoBehaviour
     [SerializeField] private int lengthMap;
     [SerializeField] private float distanceBetweenNotes;
     [Range(0, 100)]
-    [SerializeField] private float difficulty;
+    [SerializeField] private float noteSpawnChance;
     [SerializeField] private float widthMap;
 
     [Header("Notes")]
@@ -27,7 +27,7 @@ public class NoteSpawner : MonoBehaviour
         {
             newNotePos = GetNewPos();
 
-            if(Random.Range(0, 100) > difficulty)
+            if(Random.Range(0, 100) < noteSpawnChance)
             {
                 InstantiateNote();
             }

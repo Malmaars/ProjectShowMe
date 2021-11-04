@@ -5,37 +5,31 @@ using UnityEngine;
 
 public class BoatMovement : MonoBehaviour
 {
+    [Header("Boat")]
+    [SerializeField] private GameObject boat;
+
     [Header("Movement speeds")]
     [SerializeField] private float forwardSpeed;
     [SerializeField] private float sidewaysSpeed;
     
-    private float direction;
+    [HideInInspector] public float direction;
+    private float force;
+    
     private Vector3 movement;
 
-    [Header("Waves")]
+    [Header("Water interaction")]
     [SerializeField] private float waveIntensity;
     [SerializeField] private float waveAmount;
 
-    private void Update()
+    public void ChangeDirection(int newDirection, float newForce)
     {
-        GetDirection();
-        movement = new Vector3(sidewaysSpeed * direction, Mathf.Sin(Time.time * waveAmount) * waveIntensity, forwardSpeed);
+        direction = newDirection;
+        force = newForce / 2;
     }
 
-    private void GetDirection()
+    private void Update()
     {
-        if (Input.GetKey(KeyCode.A))
-        {
-            direction = -1f;
-            return;
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            direction = 1f;
-            return;
-        }
-        else
-            direction = 0f;
+        movement = new Vector3(sidewaysSpeed * direction * force, Mathf.Sin(Time.time * waveAmount) * waveIntensity, forwardSpeed);
     }
 
     private void FixedUpdate()
