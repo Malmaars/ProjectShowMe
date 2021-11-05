@@ -5,8 +5,21 @@ using UnityEngine;
 public class InstrumentInteract : MonoBehaviour
 {
     [SerializeField] private GameObject interactPrompt;
-    public bool canInteract;
+    [SerializeField] private InstrumentAbilities instrumentAbilities;
+
+    [SerializeField] private float cooldownTime;
+
+    private bool canInteract;
+    public bool isPlaying = false;
     private GameObject player;
+
+    [SerializeField] private Instrument instrument;
+    private enum Instrument
+    {
+        Jump,
+        Slomo,
+        Speedup,
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -31,9 +44,23 @@ public class InstrumentInteract : MonoBehaviour
     {
         if (!canInteract) return;
 
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.E) && !isPlaying)
         {
-            Debug.Log(player + "is trying to play an instrument");
+            if(instrument == Instrument.Jump)
+                instrumentAbilities.JumpAbility();
+            if (instrument == Instrument.Slomo)
+                instrumentAbilities.SlomoAbility();
+            if (instrument == Instrument.Speedup)
+                instrumentAbilities.SpeedupAbility();
+
+            isPlaying = true;
+            StartCoroutine(Cooldown());
         }
+    }
+
+    private IEnumerator Cooldown()
+    {
+        yield return new WaitForSeconds(cooldownTime);
+        isPlaying = false;
     }
 }

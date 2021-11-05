@@ -110,6 +110,7 @@ GameObject:
   m_Component:
   - component: {fileID: 270738088591649771}
   - component: {fileID: 270738088591649776}
+  - component: {fileID: 5083123681443158878}
   - component: {fileID: 270738088591649782}
   - component: {fileID: 270738088591649781}
   - component: {fileID: 270738088591649783}
@@ -148,7 +149,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactPrompt: {fileID: 270738088791515235}
-  canInteract: 0
+  instrumentAbilities: {fileID: 0}
+  cooldownTime: 0
+  isPlaying: 0
+  instrument: 0
+--- !u!114 &5083123681443158878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270738088591649770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 219cae7880b176845a3711860d438b02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boatMovement: {fileID: 0}
+  jumpForce: 12
+  slomoAmount: 0.5
+  speedupAmount: 2
 --- !u!33 &270738088591649782
 MeshFilter:
   m_ObjectHideFlags: 0

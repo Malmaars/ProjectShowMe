@@ -7,10 +7,15 @@ public class Note : MonoBehaviour
     [SerializeField] private NoteInfo noteInfo;
     private Transform boat;
     private bool moved = false;
+    private float newHight = 0f;
+    private float randomNumber;
 
     private void Start()
     {
         boat = GameObject.Find("Boat").transform;
+        randomNumber = Random.Range(0, 3);
+        if (randomNumber < 1)
+            newHight = 3f;
     }
 
     private void Update()
@@ -19,7 +24,7 @@ public class Note : MonoBehaviour
         if(Vector3.Distance(transform.position, boat.position) <= noteInfo.rangeToMoveUp)
         {
             moved = true;
-            StartCoroutine(LerpPosition(new Vector3(transform.position.x, transform.position.y + noteInfo.amountToMoveUp, transform.position.z), noteInfo.animationLength));
+            StartCoroutine(LerpPosition(new Vector3(transform.position.x, transform.position.y + noteInfo.amountToMoveUp + newHight, transform.position.z), noteInfo.animationLength));
         }
     }
 
