@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveAmount: 5.89
   moveIntensity: 0.64
-  rangeToMoveUp: 30
-  amountToMoveUp: 5
+  rangeToMoveUp: 45
+  amountToMoveUp: 6.5
   animationLength: 4

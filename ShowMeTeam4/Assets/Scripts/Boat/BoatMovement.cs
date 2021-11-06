@@ -49,7 +49,7 @@ public class BoatMovement : MonoBehaviour
     private void MoveBoat()
     {
         transform.Translate(movement * Time.deltaTime);
-        floor.transform.position = new Vector3(boat.transform.position.x, Mathf.Sin(Time.time * waveAmount) * waveIntensity - 1.5f, transform.position.z);
+        floor.transform.position = new Vector3(boat.transform.position.x, Mathf.Sin(Time.time * waveAmount) * waveIntensity - .2f, transform.position.z);
     }
 
     public void Jump(float jumpForce)
