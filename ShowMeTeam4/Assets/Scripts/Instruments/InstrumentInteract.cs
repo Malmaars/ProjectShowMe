@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class InstrumentInteract : MonoBehaviour
 {
-    [SerializeField] private GameObject interactPrompt;
     [SerializeField] private InstrumentAbilities instrumentAbilities;
 
     [SerializeField] private float cooldownTime;
@@ -25,7 +24,6 @@ public class InstrumentInteract : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            interactPrompt.SetActive(true);
             canInteract = true;
             player = other.gameObject;
         }
@@ -35,7 +33,6 @@ public class InstrumentInteract : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            interactPrompt.SetActive(false);
             canInteract = false;
         }
     }
